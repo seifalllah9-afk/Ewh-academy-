@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EWH Academy - Anglicize Your Future</title>
+    <style>
+        :root {
+            --primary-blue: #003366;
+            --accent-orange: #f26522;
+            --light-bg: #f8f9fa;
+            --dark-text: #333333;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: #ffffff;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: var(--primary-blue);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9rem;
+        }
+
+        .top-bar a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: underline;
+        }
+
+        /* Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container img {
+            height: 50px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        .lang-btn {
+            background-color: #ffffff;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn:hover {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+
+        .btn-trial {
+            background-color: var(--accent-orange);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Container General */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        /* Grid Layouts */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            align-items: center;
+        }
+
+        .card {
+            background: var(--light-bg);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--accent-orange);
+        }
+
+        html[dir="rtl"] .card {
+            border-left: none;
+            border-right: 4px solid var(--accent-orange);
+        }
+
+        .card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+
+        /* Founder Section */
+        .founder-section {
+            background-color: #fafafa;
+            padding: 60px 20px;
+        }
+
+        .founder-img-container {
+            position: relative;
+        }
+
+        .founder-img-container img {
+            width: 100%;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        .founder-badge {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        html[dir="rtl"] .founder-badge {
+            right: auto;
+            left: 20px;
+        }
+
+        .quote {
+            font-style: italic;
+            border-left: 3px solid var(--accent-orange);
+            padding-left: 15px;
+            margin: 20px 0;
+            color: #555;
+        }
+
+        html[dir="rtl"] .quote {
+            border-left: none;
+            border-right: 3px solid var(--accent-orange);
+            padding-left: 0;
+            padding-right: 15px;
+        }
+
+        /* Titles */
+        .section-title {
+            text-align: center;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            margin-bottom: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 20px;
+        }
+
+        .faq-item h3 {
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-blue);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--accent-orange);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Contact Bar -->
+    <div class="top-bar">
+        <span data-key="phone_label">Phone:</span> <a href="tel:+201040478722">+201040478722</a> | 
+        <span data-key="email_label">Email:</span> <a href="mailto:Ewhacademy.eg@gmail.com">Ewhacademy.eg@gmail.com</a>
+    </div>
+
+    <!-- Navigation Header -->
+    <header>
+        <div class="logo-container">
+            <img src="image.png" alt="EWH Academy Logo">
+        </div>
+        <div class="nav-links">
+            <nav>
+                <a href="#features" data-key="nav_features">Features</a>
+                <a href="#courses" data-key="nav_courses">Courses</a>
+                <a href="#founder" data-key="nav_founder">About Founder</a>
+                <a href="#faq" data-key="nav_faq">FAQ</a>
+            </nav>
+            <button class="lang-btn" id="lang-toggle" onclick="toggleLanguage()">🌐 AR</button>
+            <a href="#faq" class="btn-trial" data-key="btn_trial">Book Free Trial</a>
+        </div>
+    </header>
+
+    <!-- Key Features Section -->
+    <section id="features" class="container">
+        <h2 class="section-title" data-key="features_title">Why Choose EWH Academy?</h2>
+        <div class="grid-3">
+            <div class="card">
+                <h3 data-key="f1_title">Small Groups</h3>
+                <p data-key="f1_desc">Interactive sessions with maximum 6 to 8 students for personalized attention.</p>
+            </div>
+            <div class="card">
+                <h3 data-key="f2_title">Expert Trainers</h3>
+                <p data-key="f2_desc">TESOL & TEFL certified instructors with years of experience.</p>
+            </div>
+            <div class="card">
+                <h3 data-key="f3_title">Flexible Learning</h3>
+                <p data-key="f3_desc">Choose schedules that fit your lifestyle. Morning, evening, and weekend classes.</p>
+            </div>
+            <div class="card">
+                <h3 data-key="f4_title">Personal Feedback</h3>
+                <p data-key="f4_desc">Regular progress reports and personalized improvement plans.</p>
+            </div>
+            <div class="card">
+                <h3 data-key="f5_title">Placement Tests</h3>
+                <p data-key="f5_desc">Conversational assessment to place you in the perfect level.</p>
+            </div>
+            <div class="card">
+                <h3 data-key="f6_title">Free Trial</h3>
+                <p data-key="f6_desc">Experience our teaching style with a complimentary 20 min session.</p>
+            </div>
+            <div class="card">
+                <h3 data-key="f7_title">One-to-One Classes</h3>
+                <p data-key="f7_desc">Personalized learning plan tailored to your specific needs and goals.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Offered Section -->
+    <section id="courses" style="background-color: var(--light-bg); padding: 50px 0;">
+        <div class="container">
+            <h2 class="section-title" data-key="courses_title">Our Courses</h2>
+            <div class="grid-3">
+                <div class="card" style="background: white;">
+                    <h3 data-key="c1_title">General English</h3>
+                    <p data-key="c1_desc">Improve all four skills: reading, writing, listening, and speaking. Perfect for daily communication.</p>
+                </div>
+                <div class="card" style="background: white;">
+                    <h3 data-key="c2_title">Conversation English</h3>
+                    <p data-key="c2_desc">Build speaking confidence through practical dialogues and real-life scenarios.</p>
+                </div>
+                <div class="card" style="background: white;">
+                    <h3 data-key="c3_title">Grammar Mastery</h3>
+                    <p data-key="c3_desc">Learn grammar clearly and practically. No more confusion with tenses and structures.</p>
+                </div>
+                <div class="card" style="background: white;">
+                    <h3 data-key="c4_title">English for Career</h3>
+                    <p data-key="c4_desc">Master interviews, presentations, meetings, and workplace communication.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet The Founder Section -->
+    <section id="founder" class="founder-section">
+        <div class="container">
+            <div class="grid-2">
+                <div class="founder-img-container">
+                    <img src="image_2.png" alt="Haidy Marei - Founder & CEO">
+                    <div class="founder-badge">
+                        <strong>Haidy Marei</strong><br>
+                        <small data-key="founder_role">Founder & CEO</small>
+                    </div>
+                </div>
+                <div>
+                    <span style="color: var(--accent-orange); font-weight: bold; text-transform: uppercase;" data-key="founder_tag">Meet The Founder</span>
+                    <h2 style="color: var(--primary-blue); font-size: 2.5rem; margin-bottom: 20px;">Haidy Marei</h2>
+                    
+                    <ul style="list-style: none; margin-bottom: 20px;">
+                        <li style="margin-bottom: 10px;"><strong>🏅 TESOL Certified</strong><br><small data-key="tesol_desc">Teaching English to Speakers of Other Languages</small></li>
+                        <li style="margin-bottom: 10px;"><strong>✔ TEFL Certified</strong><br><small data-key="tefl_desc">Teaching English as a Foreign Language</small></li>
+                        <li style="margin-bottom: 10px;"><strong>🎯 PTE Trainer</strong><br><small data-key="pte_desc">Pearson Test of English Specialist</small></li>
+                    </ul>
+
+                    <p class="quote" data-key="founder_quote">
+                        "EWH Academy was created to help adults gain practical English skills that create real opportunities in work, education, and life. I believe everyone deserves the chance to communicate confidently in English."
+                    </p>
+
+                    <a href="https://www.instagram.com/ewhacademy?igsh=MTc1ZmZrbTk4a2poMg==" target="_blank" style="color: var(--primary-blue); font-weight: bold;" data-key="follow_insta">Follow on Instagram &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="container">
+        <h2 class="section-title"><a href="#faq" style="text-decoration: none; color: inherit;" data-key="faq_title">Frequently Asked Questions</a></h2>
+        <p class="section-subtitle" data-key="faq_subtitle">Got questions? We've got answers.</p>
+
+        <div class="faq-item">
+            <h3 data-key="q1_title">Are classes conducted online?</h3>
+            <p data-key="q1_ans">Yes, all our classes are conducted online via Zoom or similar platforms. This allows you to learn from anywhere in Egypt or abroad, with flexible scheduling that fits your lifestyle.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3 data-key="q2_title">Do you offer free trial sessions?</h3>
+            <p data-key="q2_ans">Absolutely! We offer a free 20-minute trial session where you can meet the trainer, discuss your goals, and experience our teaching methodology before committing.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3 data-key="q3_title">Can beginners join your courses?</h3>
+            <p data-key="q3_ans">Yes, we welcome students of all levels from complete beginners to advanced learners. Our placement test ensures you're placed in the appropriate level class.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3 data-key="q4_title">Are classes individual or group?</h3>
+            <p data-key="q4_ans">We offer both options. Group classes have 6 to 8 students for interactive learning, while one-to-one classes offer personalized attention for faster progress.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3 data-key="q5_title">How do placement tests work?</h3>
+            <p data-key="q5_ans">Our placement test evaluates your grammar, vocabulary, reading comprehension, and speaking skills. It takes about 30 minutes and can be completed online before your trial session or through a phone call.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3 data-key="q6_title">What are the course fees?</h3>
+            <p data-key="q6_ans">Fees vary depending on the course type and duration. Group classes fees differ from one to one and the fees varies according to the course type that you have chosen , Contact us for detailed pricing.</p>
+        </div>
+
+        <div class="faq-item" style="border-left: 4px solid var(--accent-orange);">
+            <h3 data-key="contact_faq_title">Contact Information</h3>
+            <p><strong data-key="phone_label">Phone:</strong> <a href="tel:+201040478722">+201040478722</a></p>
+            <p><strong data-key="email_label">Email:</strong> <a href="mailto:Ewhacademy.eg@gmail.com">Ewhacademy.eg@gmail.com</a></p>
+            <p><strong>Instagram:</strong> <a href="https://www.instagram.com/ewhacademy?igsh=MTc1ZmZrbTk4a2poMg==" target="_blank">@ewhacademy</a></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; EWH Academy. <span data-key="footer_tag">Anglicize Your Future.</span></p>
+        <p>
+            <a href="https://www.instagram.com/ewhacademy?igsh=MTc1ZmZrbTk4a2poMg==" target="_blank">Instagram</a> | 
+            <a href="mailto:Ewhacademy.eg@gmail.com">Ewhacademy.eg@gmail.com</a> | 
+            <a href="tel:+201040478722">+201040478722</a>
+        </p>
+    </footer>
+
+    <!-- JavaScript Translation Engine -->
+    <script>
+        const translations = {
+            en: {
+                phone_label: "Phone:",
+                email_label: "Email:",
+                nav_features: "Features",
+                nav_courses: "Courses",
+                nav_founder: "About Founder",
+                nav_faq: "FAQ",
+                btn_trial: "Book Free Trial",
+                features_title: "Why Choose EWH Academy?",
+                f1_title: "Small Groups",
+                f1_desc: "Interactive sessions with maximum 6 to 8 students for personalized attention.",
+                f2_title: "Expert Trainers",
+                f2_desc: "TESOL & TEFL certified instructors with years of experience.",
+                f3_title: "Flexible Learning",
+                f3_desc: "Choose schedules that fit your lifestyle. Morning, evening, and weekend classes.",
+                f4_title: "Personal Feedback",
+                f4_desc: "Regular progress reports and personalized improvement plans.",
+                f5_title: "Placement Tests",
+                f5_desc: "Conversational assessment to place you in the perfect level.",
+                f6_title: "Free Trial",
+                f6_desc: "Experience our teaching style with a complimentary 20 min session.",
+                f7_title: "One-to-One Classes",
+                f7_desc: "Personalized learning plan tailored to your specific needs and goals.",
+                courses_title: "Our Courses",
+                c1_title: "General English",
+                c1_desc: "Improve all four skills: reading, writing, listening, and speaking. Perfect for daily communication.",
+                c2_title: "Conversation English",
+                c2_desc: "Build speaking confidence through practical dialogues and real-life scenarios.",
+                c3_title: "Grammar Mastery",
+                c3_desc: "Learn grammar clearly and practically. No more confusion with tenses and structures.",
+                c4_title: "English for Career",
+                c4_desc: "Master interviews, presentations, meetings, and workplace communication.",
+                founder_role: "Founder & CEO",
+                founder_tag: "Meet The Founder",
+                tesol_desc: "Teaching English to Speakers of Other Languages",
+                tefl_desc: "Teaching English as a Foreign Language",
+                pte_desc: "Pearson Test of English Specialist",
+                founder_quote: '"EWH Academy was created to help adults gain practical English skills that create real opportunities in work, education, and life. I believe everyone deserves the chance to communicate confidently in English."',
+                follow_insta: "Follow on Instagram →",
+                faq_title: "Frequently Asked Questions",
+                faq_subtitle: "Got questions? We've got answers.",
+                q1_title: "Are classes conducted online?",
+                q1_ans: "Yes, all our classes are conducted online via Zoom or similar platforms. This allows you to learn from anywhere in Egypt or abroad, with flexible scheduling that fits your lifestyle.",
+                q2_title: "Do you offer free trial sessions?",
+                q2_ans: "Absolutely! We offer a free 20-minute trial session where you can meet the trainer, discuss your goals, and experience our teaching methodology before committing.",
+                q3_title: "Can beginners join your courses?",
+                q3_ans: "Yes, we welcome students of all levels from complete beginners to advanced learners. Our placement test ensures you're placed in the appropriate level class.",
+                q4_title: "Are classes individual or group?",
+                q4_ans: "We offer both options. Group classes have 6 to 8 students for interactive learning, while one-to-one classes offer personalized attention for faster progress.",
+                q5_title: "How do placement tests work?",
+                q5_ans: "Our placement test evaluates your grammar, vocabulary, reading comprehension, and speaking skills. It takes about 30 minutes and can be completed online before your trial session or through a phone call.",
+                q6_title: "What are the course fees?",
+                q6_ans: "Fees vary depending on the course type and duration. Group classes fees differ from one to one and the fees varies according to the course type that you have chosen , Contact us for detailed pricing.",
+                contact_faq_title: "Contact Information",
+                footer_tag: "Anglicize Your Future."
+            },
+            ar: {
+                phone_label: "الهاتف:",
+                email_label: "البريد الإلكتروني:",
+                nav_features: "المميزات",
+                nav_courses: "الدورات",
+                nav_founder: "عن المؤسس",
+                nav_faq: "الأسئلة الشائعة",
+                btn_trial: "احجز تجربة مجانية",
+                features_title: "لماذا تختار أكاديمية EWH؟",
+                f1_title: "مجموعات صغيرة",
+                f1_desc: "جلسات تفاعلية بحد أقصى من 6 إلى 8 طلاب لاهتمام شخصي أفضل.",
+                f2_title: "مدربون خبراء",
+                f2_desc: "مدربون معتمدون بشهادات TESOL و TEFL مع سنوات من الخبرة.",
+                f3_title: "تعلم مرن",
+                f3_desc: "اختر الجداول التي تناسب نمط حياتك. حصص صباحية، مسائية، وفي عطلة نهاية الأسبوع.",
+                f4_title: "تقييم شخصي مستمر",
+                f4_desc: "تقارير تقدم منتظمة وخطة تحسين مخصصة لكل طالب.",
+                f5_title: "اختبارات تحديد المستوى",
+                f5_desc: "تقييم محادثة لتحديد مستواك بدقة.",
+                f6_title: "تجربة مجانية",
+                f6_desc: "جرب طريقة تدريسنا مع جلسة مجانية لمدة 20 دقيقة.",
+                f7_title: "حصص فردية (خاصة)",
+                f7_desc: "خطة تعليمية مخصصة بالكامل تناسب احتياجاتك وأهدافك الفردية.",
+                courses_title: "دوراتنا التدريبية",
+                c1_title: "الإنجليزية العامة",
+                c1_desc: "تحسين المهارات الأربع: القراءة، الكتابة، الاستماع، والتحدث. مثالية للتواصل اليومي.",
+                c2_title: "المحادثة الإنجليزية",
+                c2_desc: "بناء الثقة في التحدث من خلال حوارات عملية وسيناريوهات من الحياة الواقعية.",
+                c3_title: "إتقان القواعد",
+                c3_desc: "تعلم القواعد بوضوح وبشكل عملي. لا مزيد من الحيرة مع الأزمنة والتركيبات.",
+                c4_title: "الإنجليزية للأعمال والمهن",
+                c4_desc: "إتقان المقابلات، العروض التقديمية، الاجتماعات، والتواصل في بيئة العمل.",
+                founder_role: "المؤسس والرئيس التنفيذي",
+                founder_tag: "تعرف على المؤسس",
+                tesol_desc: "تدريس اللغة الإنجليزية لغير الناطقين بها",
+                tefl_desc: "تدريس اللغة الإنجليزية كلفة أجنبية",
+                pte_desc: "أخصائي اختبار Pearson للغة الإنجليزية",
+                founder_quote: '"تأسست أكاديمية EWH لمساعدة الكبار على اكتساب مهارات إنجليزية عملية تخلق فرصاً حقيقية في العمل والتعليم والحياة. أعتقد أن الجميع يستحق الفرصة للتواصل بثقة باللغة الإنجليزية."',
+                follow_insta: "تابعنا على إنستغرام ←",
+                faq_title: "الأسئلة الشائعة",
+                faq_subtitle: "لديك أسئلة؟ لدينا الإجابات.",
+                q1_title: "هل الحصص عبر الإنترنت؟",
+                q1_ans: "نعم، جميع حصصنا تُدار عبر الإنترنت عبر زووم أو المنصات المشابهة. هذا يتيح لك التعلم من أي مكان في مصر أو الخارج، مع جدول مرن يناسبك.",
+                q2_title: "هل تقدمون جلسات تجريبية مجانية؟",
+                q2_ans: "بالتأكيد! نقدم جلسة تجريبية مجانية لمدة 20 دقيقة حيث يمكنك مقابلة المدرب، ومناقشة أهدافك، وتجربة منهجيتنا التعليمية قبل التعهد بالاشتراك.",
+                q3_title: "هل يمكن للمبتدئين الانضمام؟",
+                q3_ans: "نعم، نرحب بالطلاب من جميع المستويات من المبتدئين تماماً إلى المتقدمين. يضمن اختبار تحديد المستوى وضعك في الفصل المناسب.",
+                q4_title: "هل الحصص فردية أم جماعية؟",
+                q4_ans: "نقدم الكلا الخيارين. تحتوي المجموعات على 6 إلى 8 طلاب للتعلم التفاعلي، بينما توفر الحصص الفردية اهتماماً خاصاً لتقدم أسرع.",
+                q5_title: "كيف يعمل اختبار تحديد المستوى؟",
+                q5_ans: "يقيم اختبار تحديد المستوى القواعد، المفردات، الاستيعاب، ومهارات التحدث. يستغرق حوالي 30 دقيقة ويمكن إكماله عبر الإنترنت أو من خلال مكالمة هاتفية.",
+                q6_title: "ما هي رسوم الدورة؟",
+                q6_ans: "تختلف الرسوم بناءً على نوع الدورة ومدتها. تختلف رسوم المجموعات عن الحصص الفردية وتختلف وفقاً لنوع الدورة المختارة، تواصل معنا للحصول على التفاصيل.",
+                contact_faq_title: "معلومات التواصل",
+                footer_tag: "اجعل مستقبلك إنجليزيًا."
+            }
+        };
+
+        let currentLang = 'en';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            
+            // Set text direction and html lang attribute
+            document.documentElement.lang = currentLang;
+            document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+
+            // Toggle language button label
+            document.getElementById('lang-toggle').innerText = currentLang === 'en' ? '🌐 AR' : '🌐 EN';
+
+            // Translate elements
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (translations[currentLang][key]) {
+                    element.innerText = translations[currentLang][key];
+                }
+            });
+        }
+    </script>
+</body>
+</html>
